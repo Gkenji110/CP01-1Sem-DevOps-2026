@@ -21,20 +21,38 @@ public class Main {
                     <title>CP01 DevOps</title>
                     <style>
                         body {
-                            background-color: #191970;
+                            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
                             color: white;
-                            font-family: Poppins;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                             display: flex;
                             justify-content: center;
                             align-items: center;
                             height: 100vh;
+                            margin: 0;
                         }
                         .box {
-                            border: 3px solid #38bdf8;
-                            padding: 40px;
-                            border-radius: 12px;
+                            border: 2px solid #38bdf8;
+                            padding: 50px;
+                            border-radius: 20px;
                             text-align: center;
-                            font-size: 24px;
+                            font-size: 28px;
+                            font-weight: bold;
+                            background-color: rgba(15, 23, 42, 0.8);
+                    
+                            /* Sombra elegante */
+                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.2);
+                    
+                            /* Transição suave para o efeito de passar o mouse */
+                            transition: all 0.3s ease;
+                            cursor: pointer;
+                        }
+                    
+                        /* Efeito ao passar o mouse (Hover) */
+                        .box:hover {
+                            transform: translateY(-10px) scale(1.05);
+                            background-color: #38bdf8;
+                            color: #0f172a;
+                            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.4);
                         }
                     </style>
                 </head>
@@ -47,7 +65,7 @@ public class Main {
                 """;
 
             byte[] bytes = resposta.getBytes(StandardCharsets.UTF_8);
-            
+
             exchange.getResponseHeaders().add("Content-Type", "text/html; charset=UTF-8");
             exchange.sendResponseHeaders(200, bytes.length);
 
