@@ -1,7 +1,9 @@
 package br.com.fiap;
+
 import com.sun.net.httpserver.HttpServer;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
 
@@ -15,12 +17,13 @@ public class Main {
             String resposta = """
                 <html>
                 <head>
+                    <meta charset="UTF-8">
                     <title>CP01 DevOps</title>
                     <style>
                         body {
-                            background-color: #0f172a;
+                            background-color: #191970;
                             color: white;
-                            font-family: Arial;
+                            font-family: Poppins;
                             display: flex;
                             justify-content: center;
                             align-items: center;
@@ -37,15 +40,19 @@ public class Main {
                 </head>
                 <body>
                     <div class="box">
-                        Esta aplicação está rodando na nossa VM na Azure ☁️
+                        Minha primeira aplicação rodando na VM da Azure! 
                     </div>
                 </body>
                 </html>
                 """;
 
-            exchange.sendResponseHeaders(200, resposta.getBytes().length);
+            byte[] bytes = resposta.getBytes(StandardCharsets.UTF_8);
+            
+            exchange.getResponseHeaders().add("Content-Type", "text/html; charset=UTF-8");
+            exchange.sendResponseHeaders(200, bytes.length);
+
             OutputStream os = exchange.getResponseBody();
-            os.write(resposta.getBytes());
+            os.write(bytes);
             os.close();
         });
 
@@ -53,6 +60,4 @@ public class Main {
 
         System.out.println("Servidor rodando na porta 8080...");
     }
-
-
 }
