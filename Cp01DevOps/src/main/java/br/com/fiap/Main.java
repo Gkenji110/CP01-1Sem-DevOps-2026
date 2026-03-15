@@ -39,10 +39,8 @@ public class Main {
                             font-weight: bold;
                             background-color: rgba(15, 23, 42, 0.8);
                     
-                            /* Sombra elegante */
                             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.2);
                     
-                            /* Transição suave para o efeito de passar o mouse */
                             transition: all 0.3s ease;
                             cursor: pointer;
                         }
