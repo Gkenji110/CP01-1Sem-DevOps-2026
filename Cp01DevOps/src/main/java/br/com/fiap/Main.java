@@ -45,7 +45,6 @@ public class Main {
                             cursor: pointer;
                         }
                     
-                        /* Efeito ao passar o mouse (Hover) */
                         .box:hover {
                             transform: translateY(-10px) scale(1.05);
                             background-color: #38bdf8;
